@@ -56,6 +56,7 @@ export interface TCGCContext {
   previewStringRegex: RegExp;
   disableUsageAccessPropagationToBase: boolean;
   flattenUnionAsEnum?: boolean;
+  enableLegacyHierarchyBuilding?: boolean;
 
   __referencedTypeCache: Map<Type, SdkModelType | SdkEnumType | SdkUnionType | SdkNullableType>;
   __arrayDictionaryCache: Map<Type, SdkDictionaryType | SdkArrayType>;
@@ -644,17 +645,20 @@ export interface SdkCredentialParameter
 }
 
 export interface MultipartOptions {
+  /** Name of the part in the multipart payload. */
   name: string;
-  /** whether this part is for file */
+  /** Whether this part is for file */
   isFilePart: boolean;
-  /** whether this part is multi in request payload */
+  /** Whether this part is multi in request payload */
   isMulti: boolean;
-  /** undefined if filename is not set explicitly in Typespec */
+  /** Undefined if filename is not set explicitly in Typespec */
   filename?: SdkModelPropertyType;
-  /** undefined if contentType is not set explicitly in Typespec */
+  /** Undefined if contentType is not set explicitly in Typespec */
   contentType?: SdkModelPropertyType;
-  /** defined in Typespec or calculated by Typespec complier */
+  /** Default content types defined in Typespec or calculated by Typespec complier */
   defaultContentTypes: string[];
+  /** Part headers */
+  headers: SdkHeaderParameter[];
 }
 
 export interface SdkModelPropertyType extends SdkModelPropertyTypeBase {
