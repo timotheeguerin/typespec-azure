@@ -31,7 +31,7 @@ jobs:
         if: runner.os == 'Windows'
         run: git config --global core.longpaths true
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -66,7 +66,7 @@ jobs:
     name: Website
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -91,7 +91,7 @@ jobs:
       TYPESPEC_VS_CI_BUILD: true
       TYPESPEC_SKIP_WEBSITE_BUILD: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -129,7 +129,7 @@ jobs:
     name: Autorest Checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
